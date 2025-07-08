@@ -90,7 +90,8 @@ public class LocalOnlyLock implements Lock {
 
     @Override
     public void releaseLock(String lockId) {
-        // Synchronized to prevent race condition between semaphore check and actual release
+        // Synchronized to prevent race condition between semaphore check and actual
+        // release
         synchronized (LOCKIDTOSEMAPHOREMAP) {
             if (LOCKIDTOSEMAPHOREMAP.getIfPresent(lockId) == null) {
                 return;

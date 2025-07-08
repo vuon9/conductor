@@ -349,7 +349,8 @@ public @interface WorkflowTaskTypeConstraint {
                 WorkflowTask workflowTask, ConstraintValidatorContext context) {
             boolean valid = true;
 
-            // For DYNAMIC_FORK_JOIN_TASK support dynamicForkJoinTasksParam or combination of
+            // For DYNAMIC_FORK_JOIN_TASK support dynamicForkJoinTasksParam or combination
+            // of
             // dynamicForkTasksParam and dynamicForkTasksInputParamName.
             // Both are not allowed.
             if (workflowTask.getDynamicForkJoinTasksParam() != null
@@ -397,7 +398,8 @@ public @interface WorkflowTaskTypeConstraint {
             boolean isInputParameterSet = false;
             boolean isInputTemplateSet = false;
 
-            // Either http_request in WorkflowTask inputParam should be set or in inputTemplate
+            // Either http_request in WorkflowTask inputParam should be set or in
+            // inputTemplate
             // Taskdef should be set
             if (workflowTask.getInputParameters() != null
                     && workflowTask.getInputParameters().containsKey("http_request")) {
@@ -476,7 +478,8 @@ public @interface WorkflowTaskTypeConstraint {
             boolean isInputParameterSet = false;
             boolean isInputTemplateSet = false;
 
-            // Either kafka_request in WorkflowTask inputParam should be set or in inputTemplate
+            // Either kafka_request in WorkflowTask inputParam should be set or in
+            // inputTemplate
             // Taskdef should be set
             if (workflowTask.getInputParameters() != null
                     && workflowTask.getInputParameters().containsKey("kafka_request")) {
@@ -531,7 +534,8 @@ public @interface WorkflowTaskTypeConstraint {
             boolean isInputParameterSet = false;
             boolean isInputTemplateSet = false;
 
-            // Either queryExpression in WorkflowTask inputParam should be set or in inputTemplate
+            // Either queryExpression in WorkflowTask inputParam should be set or in
+            // inputTemplate
             // Taskdef should be set
             if (workflowTask.getInputParameters() != null
                     && workflowTask.getInputParameters().containsKey("queryExpression")) {

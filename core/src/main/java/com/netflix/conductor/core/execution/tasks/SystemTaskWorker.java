@@ -123,7 +123,8 @@ public class SystemTaskWorker extends LifecycleAwareComponent {
             LOGGER.debug("Polling queue:{}, got {} tasks", queueName, polledTaskIds.size());
 
             if (polledTaskIds.size() > 0) {
-                // Immediately release unused slots when number of messages acquired is less than
+                // Immediately release unused slots when number of messages acquired is less
+                // than
                 // acquired slots
                 if (polledTaskIds.size() < messagesToAcquire) {
                     semaphoreUtil.completeProcessing(messagesToAcquire - polledTaskIds.size());
@@ -156,7 +157,8 @@ public class SystemTaskWorker extends LifecycleAwareComponent {
                 semaphoreUtil.completeProcessing(messagesToAcquire);
             }
         } catch (Exception e) {
-            // release the permit if exception is thrown during polling, because the thread would
+            // release the permit if exception is thrown during polling, because the thread
+            // would
             // not be busy
             semaphoreUtil.completeProcessing(messagesToAcquire);
             Monitors.recordTaskPollError(taskName, e.getClass().getSimpleName());

@@ -60,7 +60,8 @@ public class WorkflowDefValidatorTest {
         assertTrue(validationErrors.contains("WorkflowDef name cannot be null or empty"));
         assertTrue(validationErrors.contains("WorkflowTask list cannot be empty"));
         assertTrue(validationErrors.contains("ownerEmail cannot be empty"));
-        // assertTrue(validationErrors.contains("workflowDef schemaVersion: 1 should be >= 2"));
+        // assertTrue(validationErrors.contains("workflowDef schemaVersion: 1 should be
+        // >= 2"));
     }
 
     @Test

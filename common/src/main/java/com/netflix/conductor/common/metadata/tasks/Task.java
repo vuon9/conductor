@@ -36,8 +36,8 @@ public class Task {
         CANCELED(true, false, false),
         FAILED(true, false, true),
         FAILED_WITH_TERMINAL_ERROR(
-                true, false,
-                false), // No retries even if retries are configured, the task and the related
+                true, false, false), // No retries even if retries are configured, the
+        // task and the related
         // workflow should be terminated
         COMPLETED(true, true, true),
         COMPLETED_WITH_ERRORS(true, true, true),
@@ -205,7 +205,8 @@ public class Task {
     @ProtoField(id = 43)
     private long firstStartTime;
 
-    // If the task is an event associated with a parent task, the id of the parent task
+    // If the task is an event associated with a parent task, the id of the parent
+    // task
     private String parentTaskId;
 
     public Task() {}

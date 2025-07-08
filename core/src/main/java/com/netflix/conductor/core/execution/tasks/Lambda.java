@@ -45,7 +45,7 @@ import static com.netflix.conductor.common.metadata.tasks.TaskType.TASK_TYPE_LAM
  *  ]
  * }
  * ...
- * </pre>
+ *         </pre>
  *     then to use task output, e.g. <code>script_test.output.testvalue</code>
  * @deprecated {@link Lambda} is deprecated. Use {@link Inline} task for inline expression
  *     evaluation. Also see ${@link com.netflix.conductor.common.metadata.workflow.WorkflowTask})

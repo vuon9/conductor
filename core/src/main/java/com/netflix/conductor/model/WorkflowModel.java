@@ -103,7 +103,8 @@ public class WorkflowModel {
 
     private String updatedBy;
 
-    // Capture the failed taskId if the workflow execution failed because of task failure
+    // Capture the failed taskId if the workflow execution failed because of task
+    // failure
     private String failedTaskId;
 
     private Status previousStatus;

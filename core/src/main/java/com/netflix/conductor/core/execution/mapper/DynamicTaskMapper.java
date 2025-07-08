@@ -87,7 +87,8 @@ public class DynamicTaskMapper implements TaskMapper {
                         taskMapperContext.getTaskId());
 
         // IMPORTANT: The WorkflowTask that is inside TaskMapperContext is changed above
-        // createTaskModel() must be called here so the changes are reflected in the created
+        // createTaskModel() must be called here so the changes are reflected in the
+        // created
         // TaskModel
         TaskModel dynamicTask = taskMapperContext.createTaskModel();
         dynamicTask.setStartDelayInSeconds(workflowTask.getStartDelay());
@@ -139,7 +140,9 @@ public class DynamicTaskMapper implements TaskMapper {
      */
     @VisibleForTesting
     TaskDef getDynamicTaskDefinition(WorkflowTask workflowTask)
-            throws TerminateWorkflowException { // TODO this is a common pattern in code base can
+            throws TerminateWorkflowException { // TODO this is a
+        // common pattern in
+        // code base can
         // be moved to DAO
         return Optional.ofNullable(workflowTask.getTaskDefinition())
                 .orElseGet(

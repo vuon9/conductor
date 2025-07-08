@@ -246,7 +246,8 @@ public class PostgresQueueDAOTest {
         // Populate the queue with our test message batch
         queueDAO.push(queueName1, ImmutableList.copyOf(messages));
 
-        // Add same messages for queue 2, to make sure that the message_id is duplicated across
+        // Add same messages for queue 2, to make sure that the message_id is duplicated
+        // across
         // queues
         queueDAO.push(queueName2, ImmutableList.copyOf(messages));
 
@@ -442,7 +443,8 @@ public class PostgresQueueDAOTest {
         // A secondary queue to make sure we don't accidentally process other queues
         final String otherQueueName = "process_unacks_test_other_queue";
 
-        // Create testing queue with some messages (but not all) that will be popped/acked.
+        // Create testing queue with some messages (but not all) that will be
+        // popped/acked.
         for (int i = 0; i < count; i++) {
             int offset = 0;
             if (i >= unackedCount) {

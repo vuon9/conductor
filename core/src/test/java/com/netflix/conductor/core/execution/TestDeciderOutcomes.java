@@ -664,9 +664,12 @@ public class TestDeciderOutcomes {
                 outcome.tasksToBeScheduled.get(0).getReferenceTaskName());
         assertEquals(
                 even.getTaskReferenceName(),
-                outcome.tasksToBeScheduled
-                        .get(1)
-                        .getReferenceTaskName()); // even because of location == usa
+                outcome.tasksToBeScheduled.get(1).getReferenceTaskName()); // even
+        // because
+        // of
+        // location
+        // ==
+        // usa
         assertEquals(
                 Collections.singletonList("even"),
                 outcome.tasksToBeScheduled.get(0).getOutputData().get("caseOutput"));

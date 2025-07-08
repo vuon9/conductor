@@ -56,7 +56,7 @@ public class JsonUtilsTest {
         map.put("version", 2);
         list.add(map);
 
-        //noinspection unchecked
+        // noinspection unchecked
         map = (Map<String, Object>) list.get(0);
         assertTrue(map.get("externalId") instanceof String);
 
@@ -64,7 +64,7 @@ public class JsonUtilsTest {
         jsonUtils.expand(list);
         assertEquals(before, list.size());
 
-        //noinspection unchecked
+        // noinspection unchecked
         map = (Map<String, Object>) list.get(0);
         assertTrue(map.get("externalId") instanceof ArrayList);
     }
@@ -104,7 +104,8 @@ public class JsonUtilsTest {
         assertNotNull(jsonObject);
     }
 
-    // This test verifies that the types of the elements in the input are maintained upon expanding
+    // This test verifies that the types of the elements in the input are maintained
+    // upon expanding
     // the JSON object
     @Test
     public void testTypes() throws Exception {

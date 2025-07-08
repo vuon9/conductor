@@ -180,8 +180,8 @@ public class WorkflowBulkServiceImpl implements WorkflowBulkService {
         for (String workflowId : workflowIds) {
             try {
                 workflowService.deleteWorkflow(
-                        workflowId,
-                        archiveWorkflow); // TODO: change this to method that cancels then deletes
+                        workflowId, archiveWorkflow); // TODO: change this to method that cancels
+                // then deletes
                 bulkResponse.appendSuccessResponse(workflowId);
             } catch (Exception e) {
                 LOGGER.error(

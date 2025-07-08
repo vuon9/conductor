@@ -359,26 +359,28 @@ public class SqliteIndexDAOTest {
     }
 
     // json working not working
-    //    @Test
-    //    public void testJsonSearchWorkflowSummary() {
-    //        WorkflowSummary wfs = getMockWorkflowSummary("workflow-id-summary");
-    //        wfs.setVersion(3);
+    // @Test
+    // public void testJsonSearchWorkflowSummary() {
+    // WorkflowSummary wfs = getMockWorkflowSummary("workflow-id-summary");
+    // wfs.setVersion(3);
     //
-    //        indexDAO.indexWorkflow(wfs);
+    // indexDAO.indexWorkflow(wfs);
     //
-    //        String freeText = "{\"correlationId\":\"not-the-id\"}";
-    //        SearchResult<WorkflowSummary> results =
-    //                indexDAO.searchWorkflowSummary("", freeText, 0, 15, new ArrayList());
-    //        assertEquals("Wrong number of results returned", 0, results.getResults().size());
+    // String freeText = "{\"correlationId\":\"not-the-id\"}";
+    // SearchResult<WorkflowSummary> results =
+    // indexDAO.searchWorkflowSummary("", freeText, 0, 15, new ArrayList());
+    // assertEquals("Wrong number of results returned", 0,
+    // results.getResults().size());
     //
-    //        freeText = "{\"correlationId\":\"correlation-id\", \"version\":3}";
-    //        results = indexDAO.searchWorkflowSummary("", freeText, 0, 15, new ArrayList());
-    //        assertEquals("No results returned", 1, results.getResults().size());
-    //        assertEquals(
-    //                "Wrong workflow returned",
-    //                wfs.getWorkflowId(),
-    //                results.getResults().get(0).getWorkflowId());
-    //    }
+    // freeText = "{\"correlationId\":\"correlation-id\", \"version\":3}";
+    // results = indexDAO.searchWorkflowSummary("", freeText, 0, 15, new
+    // ArrayList());
+    // assertEquals("No results returned", 1, results.getResults().size());
+    // assertEquals(
+    // "Wrong workflow returned",
+    // wfs.getWorkflowId(),
+    // results.getResults().get(0).getWorkflowId());
+    // }
 
     @Test
     public void testSearchWorkflowSummaryPagination() {

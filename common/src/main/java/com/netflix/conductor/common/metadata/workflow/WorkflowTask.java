@@ -147,9 +147,9 @@ public class WorkflowTask {
     private String expression;
 
     /*
-    Map of events to be emitted when the task status changed.
-    key can be comma separated values of the status changes prefixed with "on"<STATUS>
-    */
+     * Map of events to be emitted when the task status changed. key can be comma
+     * separated values of the status changes prefixed with "on"<STATUS>
+     */
     // @ProtoField(id = 29)
     private @Valid Map<String, List<StateChangeEvent>> onStateChange = new HashMap<>();
 
@@ -675,7 +675,8 @@ public class WorkflowTask {
                     if (found && parent != null) {
                         return parent.next(
                                 this.taskReferenceName,
-                                parent); // we need to return join task... -- get my sibling from my
+                                parent); // we need to return join task... -- get my
+                        // sibling from my
                         // parent..
                     }
                 }

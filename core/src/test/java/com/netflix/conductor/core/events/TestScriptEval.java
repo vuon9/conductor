@@ -61,9 +61,9 @@ public class TestScriptEval {
 
         String script1 =
                 """
-                (function(){\s
-                const variable = 1; // const support => es6\s
-                return $.app.name == 'conductor';})();"""; // true
+				(function(){\s
+				const variable = 1; // const support => es6\s
+				return $.app.name == 'conductor';})();"""; // true
 
         MockedStatic<ScriptEvaluator> evaluator = Mockito.mockStatic(ScriptEvaluator.class);
         evaluator

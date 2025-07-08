@@ -241,7 +241,7 @@ public class ParametersUtils {
             String paramPath = match.substring(2, match.length() - 1);
             paramPath = replaceVariables(paramPath, documentContext, taskId, depth + 1).toString();
             // if the paramPath is blank, meaning no value in between ${ and }
-            // like ${}, ${  } etc, set the value to empty string
+            // like ${}, ${ } etc, set the value to empty string
             if (StringUtils.isBlank(paramPath)) {
                 replacements.add(new Replacement("", start, end));
                 continue;
@@ -282,7 +282,8 @@ public class ParametersUtils {
     }
 
     @Deprecated
-    // Workflow schema version 1 is deprecated and new workflows should be using version 2
+    // Workflow schema version 1 is deprecated and new workflows should be using
+    // version 2
     private Map<String, Object> getTaskInputV1(
             WorkflowModel workflow, Map<String, Object> inputParams) {
         Map<String, Object> input = new HashMap<>();

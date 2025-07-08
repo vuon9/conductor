@@ -88,7 +88,8 @@ public class SubWorkflow extends WorkflowSystemTask {
             // For backwards compatibility
             task.addOutput(SUB_WORKFLOW_ID, subWorkflowId);
 
-            // Set task status based on current sub-workflow status, as the status can change in
+            // Set task status based on current sub-workflow status, as the status can
+            // change in
             // recursion by the time we update here.
             WorkflowModel subWorkflow = workflowExecutor.getWorkflow(subWorkflowId, false);
             updateTaskStatus(subWorkflow, task);

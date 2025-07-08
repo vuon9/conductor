@@ -172,7 +172,8 @@ public class ElasticSearchRestDAOV7 extends ElasticSearchBaseDAO implements Inde
                             Monitors.recordDiscardedIndexingCount("indexQueue");
                         });
 
-        // Set up a workerpool for performing async operations for task_logs, event_executions,
+        // Set up a workerpool for performing async operations for task_logs,
+        // event_executions,
         // message
         int corePoolSize = 1;
         maximumPoolSize = 2;

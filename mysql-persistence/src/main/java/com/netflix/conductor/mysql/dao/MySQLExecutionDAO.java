@@ -702,8 +702,10 @@ public class MySQLExecutionDAO extends MySQLBaseDAO
 
     private void insertOrUpdateTaskData(Connection connection, TaskModel task) {
         /*
-         * Most times the row will be updated so let's try the update first. This used to be an 'INSERT/ON DUPLICATE KEY update' sql statement. The problem with that
-         * is that if we try the INSERT first, the sequence will be increased even if the ON DUPLICATE KEY happens.
+         * Most times the row will be updated so let's try the update first. This used
+         * to be an 'INSERT/ON DUPLICATE KEY update' sql statement. The problem with
+         * that is that if we try the INSERT first, the sequence will be increased even
+         * if the ON DUPLICATE KEY happens.
          */
         String UPDATE_TASK =
                 "UPDATE task SET json_data=?, modified_on=CURRENT_TIMESTAMP WHERE task_id=?";
@@ -992,9 +994,11 @@ public class MySQLExecutionDAO extends MySQLBaseDAO
     private void insertOrUpdatePollData(Connection connection, PollData pollData, String domain) {
 
         /*
-         * Most times the row will be updated so let's try the update first. This used to be an 'INSERT/ON DUPLICATE KEY update' sql statement. The problem with that
-         * is that if we try the INSERT first, the sequence will be increased even if the ON DUPLICATE KEY happens. Since polling happens *a lot*, the sequence can increase
-         * dramatically even though it won't be used.
+         * Most times the row will be updated so let's try the update first. This used
+         * to be an 'INSERT/ON DUPLICATE KEY update' sql statement. The problem with
+         * that is that if we try the INSERT first, the sequence will be increased even
+         * if the ON DUPLICATE KEY happens. Since polling happens *a lot*, the sequence
+         * can increase dramatically even though it won't be used.
          */
         String UPDATE_POLL_DATA =
                 "UPDATE poll_data SET json_data=?, modified_on=CURRENT_TIMESTAMP WHERE queue_name=? AND domain=?";

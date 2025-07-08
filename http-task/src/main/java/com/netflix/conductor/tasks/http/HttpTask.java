@@ -121,7 +121,7 @@ public class HttpTask extends WorkflowSystemTask {
                 }
                 task.setStatus(TaskModel.Status.FAILED);
             }
-            //noinspection ConstantConditions
+            // noinspection ConstantConditions
             if (response != null) {
                 task.addOutput("response", response.asMap());
             }

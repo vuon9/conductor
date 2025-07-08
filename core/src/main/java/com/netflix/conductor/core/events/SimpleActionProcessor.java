@@ -203,7 +203,8 @@ public class SimpleActionProcessor implements ActionProcessor {
                     .ifPresent(value -> paramsMap.put("correlationId", value));
             Map<String, Object> replaced = parametersUtils.replace(paramsMap, payload);
 
-            // if taskToDomain is absent from event handler definition, and taskDomain Map is passed
+            // if taskToDomain is absent from event handler definition, and taskDomain Map
+            // is passed
             // as a part of payload
             // then assign payload taskToDomain map to the new workflow instance
             final Map<String, String> taskToDomain =

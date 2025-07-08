@@ -47,7 +47,7 @@ import static com.netflix.conductor.common.metadata.tasks.TaskType.TASK_TYPE_INL
  *  ]
  * }
  * ...
- * </pre>
+ *         </pre>
  *     then to use task output, e.g. <code>script_test.output.testvalue</code> {@link Inline} is a
  *     replacement for deprecated {@link Lambda}
  */
@@ -88,7 +88,8 @@ public class Inline extends WorkflowSystemTask {
                     workflow.getWorkflowId(),
                     e);
             // TerminateWorkflowException is thrown when the script evaluation fails
-            // Retry will result in the same error, so FAILED_WITH_TERMINAL_ERROR status is used.
+            // Retry will result in the same error, so FAILED_WITH_TERMINAL_ERROR status is
+            // used.
             task.setStatus(
                     e instanceof TerminateWorkflowException
                             ? TaskModel.Status.FAILED_WITH_TERMINAL_ERROR

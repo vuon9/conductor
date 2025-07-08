@@ -57,7 +57,8 @@ public class SubWorkflowTaskMapper implements TaskMapper {
         WorkflowTask workflowTask = taskMapperContext.getWorkflowTask();
         WorkflowModel workflowModel = taskMapperContext.getWorkflowModel();
         String taskId = taskMapperContext.getTaskId();
-        // Check if there are sub workflow parameters, if not throw an exception, cannot initiate a
+        // Check if there are sub workflow parameters, if not throw an exception, cannot
+        // initiate a
         // sub-workflow without workflow params
         SubWorkflowParams subWorkflowParams = getSubWorkflowParams(workflowTask);
 

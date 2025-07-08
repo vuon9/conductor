@@ -66,7 +66,8 @@ public class StartWorkflow extends WorkflowSystemTask {
             }
         }
 
-        // set the correlation id of starter workflow, if its empty in the StartWorkflowRequest
+        // set the correlation id of starter workflow, if its empty in the
+        // StartWorkflowRequest
         request.setCorrelationId(
                 StringUtils.defaultIfBlank(
                         request.getCorrelationId(), workflow.getCorrelationId()));

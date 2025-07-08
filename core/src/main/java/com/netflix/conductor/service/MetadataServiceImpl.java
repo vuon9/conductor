@@ -69,7 +69,8 @@ public class MetadataServiceImpl implements MetadataService {
 
     @Override
     public void validateWorkflowDef(WorkflowDef workflowDef) {
-        // do nothing, WorkflowDef is annotated with @Valid and calling this method will validate it
+        // do nothing, WorkflowDef is annotated with @Valid and calling this method will
+        // validate it
     }
 
     /**

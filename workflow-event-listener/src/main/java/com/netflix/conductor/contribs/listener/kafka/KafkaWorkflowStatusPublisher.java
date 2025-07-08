@@ -120,9 +120,12 @@ public class KafkaWorkflowStatusPublisher implements WorkflowStatusListener, Dis
             // Construct JSON message
             Map<String, Object> message =
                     Map.of(
-                            "workflowName", workflow.getWorkflowName(),
-                            "eventType", eventType.toString(),
-                            "payload", workflowSummary);
+                            "workflowName",
+                            workflow.getWorkflowName(),
+                            "eventType",
+                            eventType.toString(),
+                            "payload",
+                            workflowSummary);
 
             String jsonMessage = objectMapper.writeValueAsString(message);
 

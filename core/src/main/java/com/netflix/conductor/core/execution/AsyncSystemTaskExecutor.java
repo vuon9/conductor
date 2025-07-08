@@ -82,7 +82,8 @@ public class AsyncSystemTaskExecutor {
         LOGGER.debug("Task: {} fetched from execution DAO for taskId: {}", task, taskId);
         String queueName = QueueUtils.getQueueName(task);
         if (task.getStatus().isTerminal()) {
-            // Tune the SystemTaskWorkerCoordinator's queues - if the queue size is very big this
+            // Tune the SystemTaskWorkerCoordinator's queues - if the queue size is very big
+            // this
             // can happen!
             LOGGER.info("Task {}/{} was already completed.", task.getTaskType(), task.getTaskId());
             queueDAO.remove(queueName, task.getTaskId());
@@ -112,7 +113,8 @@ public class AsyncSystemTaskExecutor {
         boolean hasTaskExecutionCompleted = false;
         boolean shouldRemoveTaskFromQueue = false;
         String workflowId = task.getWorkflowInstanceId();
-        // if we are here the Task object is updated and needs to be persisted regardless of an
+        // if we are here the Task object is updated and needs to be persisted
+        // regardless of an
         // exception
         try {
             WorkflowModel workflow =
@@ -155,7 +157,8 @@ public class AsyncSystemTaskExecutor {
             }
 
             // Update message in Task queue based on Task status
-            // Remove asyncComplete system tasks from the queue that are not in SCHEDULED state
+            // Remove asyncComplete system tasks from the queue that are not in SCHEDULED
+            // state
             if (isTaskAsyncComplete && task.getStatus() != TaskModel.Status.SCHEDULED) {
                 shouldRemoveTaskFromQueue = true;
                 hasTaskExecutionCompleted = true;
@@ -192,7 +195,8 @@ public class AsyncSystemTaskExecutor {
                 queueDAO.remove(queueName, task.getTaskId());
                 LOGGER.debug("{} removed from queue: {}", task, queueName);
             }
-            // if the current task execution has completed, then the workflow needs to be evaluated
+            // if the current task execution has completed, then the workflow needs to be
+            // evaluated
             if (hasTaskExecutionCompleted) {
                 workflowExecutor.decide(workflowId);
             }

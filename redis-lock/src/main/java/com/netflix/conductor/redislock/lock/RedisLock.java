@@ -79,7 +79,8 @@ public class RedisLock implements Lock {
         try {
             lock.unlock();
         } catch (IllegalMonitorStateException e) {
-            // Releasing a lock twice using Redisson can cause this exception, which can be ignored.
+            // Releasing a lock twice using Redisson can cause this exception, which can be
+            // ignored.
         }
     }
 
@@ -98,10 +99,13 @@ public class RedisLock implements Lock {
     private boolean handleAcquireLockFailure(String lockId, Exception e) {
         LOGGER.error("Failed to acquireLock for lockId: {}", lockId, e);
         Monitors.recordAcquireLockFailure(e.getClass().getName());
-        // A Valid failure to acquire lock when another thread has acquired it returns false.
-        // However, when an exception is thrown while acquiring lock, due to connection or others
+        // A Valid failure to acquire lock when another thread has acquired it returns
+        // false.
+        // However, when an exception is thrown while acquiring lock, due to connection
+        // or others
         // issues,
-        // we can optionally continue without a "lock" to not block executions until Locking service
+        // we can optionally continue without a "lock" to not block executions until
+        // Locking service
         // is available.
         return properties.isIgnoreLockingExceptions();
     }

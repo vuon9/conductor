@@ -321,8 +321,8 @@ public class JetStreamObservableQueue implements ObservableQueue {
                                 message.setId(NUID.nextGlobal());
                                 message.setPayload(new String(msg.getData()));
                                 messages.add(message);
-                            },
-                            /*autoAck*/ false,
+                            }, /* autoAck */
+                            false,
                             pso);
             LOG.debug("Subscribed successfully {}", sub.getConsumerInfo());
             this.running.set(true);

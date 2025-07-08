@@ -75,7 +75,8 @@ public class RedisRateLimitingDAO extends BaseDynoDAO implements RateLimitingDAO
      */
     @Override
     public boolean exceedsRateLimitPerFrequency(TaskModel task, TaskDef taskDef) {
-        // Check if the TaskDefinition is not null then pick the definition values or else pick from
+        // Check if the TaskDefinition is not null then pick the definition values or
+        // else pick from
         // the Task
         ImmutablePair<Integer, Integer> rateLimitPair =
                 Optional.ofNullable(taskDef)

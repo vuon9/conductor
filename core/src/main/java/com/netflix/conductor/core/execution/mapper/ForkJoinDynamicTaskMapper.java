@@ -179,10 +179,12 @@ public class ForkJoinDynamicTaskMapper implements TaskMapper {
                                                                 .getTaskReferenceName()))
                         .findAny();
         List<String> joinOnTaskRefs = new LinkedList<>();
-        // Add each dynamic task to the mapped tasks and also get the last dynamic task in the list,
+        // Add each dynamic task to the mapped tasks and also get the last dynamic task
+        // in the list,
         // which indicates that the following task after that needs to be a join task
         if (!exists.isPresent()) {
-            // Add each dynamic task to the mapped tasks and also get the last dynamic task in the
+            // Add each dynamic task to the mapped tasks and also get the last dynamic task
+            // in the
             // list,
             // which indicates that the following task after that needs to be a join task
             for (WorkflowTask dynForkTask : dynForkTasks) {
@@ -252,7 +254,8 @@ public class ForkJoinDynamicTaskMapper implements TaskMapper {
             }
         }
 
-        // From the workflow definition get the next task and make sure that it is a JOIN task.
+        // From the workflow definition get the next task and make sure that it is a
+        // JOIN task.
         // The dynamic fork tasks need to be followed by a join task
         WorkflowTask joinWorkflowTask =
                 workflowModel
@@ -298,9 +301,8 @@ public class ForkJoinDynamicTaskMapper implements TaskMapper {
         forkDynamicTask.getInputData().put("forkedTasks", forkedTaskNames);
         forkDynamicTask
                 .getInputData()
-                .put(
-                        "forkedTaskDefs",
-                        dynForkTasks); // TODO: Remove this parameter in the later releases
+                .put("forkedTaskDefs", dynForkTasks); // TODO: Remove this parameter in the later
+        // releases
         forkDynamicTask.setStatus(TaskModel.Status.COMPLETED);
         return forkDynamicTask;
     }

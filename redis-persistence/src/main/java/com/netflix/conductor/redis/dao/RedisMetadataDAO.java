@@ -184,8 +184,10 @@ public class RedisMetadataDAO extends BaseDynoDAO implements MetadataDAO {
     @Override
     /*
      * @param name Name of the workflow definition
-     * @return     Latest version of workflow definition
-     * @see        WorkflowDef
+     *
+     * @return Latest version of workflow definition
+     *
+     * @see WorkflowDef
      */
     public Optional<WorkflowDef> getLatestWorkflowDef(String name) {
         Preconditions.checkNotNull(name, "WorkflowDef name cannot be null");
@@ -307,7 +309,8 @@ public class RedisMetadataDAO extends BaseDynoDAO implements MetadataDAO {
         recordRedisDaoRequests("getAllWorkflowLatestVersionsDefs");
         Set<String> wfNames = jedisProxy.smembers(nsKey(WORKFLOW_DEF_NAMES));
         int size = 0;
-        // Place all workflows into the Priority Queue. The PQ will allow us to grab the latest
+        // Place all workflows into the Priority Queue. The PQ will allow us to grab the
+        // latest
         // version of the workflows.
         for (String wfName : wfNames) {
             WorkflowDef def = getLatestWorkflowDef(wfName).orElse(null);

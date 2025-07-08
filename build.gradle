@@ -141,6 +141,8 @@ configure(allprojects - project(':conductor-grpc')) {
 
     spotless {
         java {
+            eclipse()
+            toggleOffOn()
             googleJavaFormat().aosp()
             removeUnusedImports()
             importOrder('java', 'javax', 'org', 'com.netflix', '', '\\#com.netflix', '\\#')

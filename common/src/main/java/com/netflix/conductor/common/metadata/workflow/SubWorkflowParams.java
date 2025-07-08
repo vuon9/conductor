@@ -36,7 +36,8 @@ public class SubWorkflowParams {
     @ProtoField(id = 3)
     private Map<String, String> taskToDomain;
 
-    // workaround as WorkflowDef cannot directly be used due to cyclic dependency issue in protobuf
+    // workaround as WorkflowDef cannot directly be used due to cyclic dependency
+    // issue in protobuf
     // imports
     @ProtoField(id = 4)
     private Object workflowDefinition;

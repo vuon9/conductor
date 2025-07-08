@@ -395,7 +395,9 @@ public class KafkaObservableQueueTest {
         // Step 2: Mock Offsets
         ListOffsetsResult.ListOffsetsResultInfo offsetInfo =
                 new ListOffsetsResult.ListOffsetsResultInfo(
-                        10, // Mock the offset size
+                        10, // Mock the
+                        // offset
+                        // size
                         0, // Leader epoch
                         null // Timestamp
                         );
@@ -429,7 +431,8 @@ public class KafkaObservableQueueTest {
                 Map.of(
                         new TopicPartition("test-topic", 0),
                         new ListOffsetsResult.ListOffsetsResultInfo(
-                                10L, // Offset value
+                                10L, // Offset
+                                // value
                                 0L, // Log append time (can be 0 if not available)
                                 Optional.empty() // Leader epoch (optional, use a default value like
                                 // 100)

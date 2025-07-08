@@ -101,7 +101,8 @@ public class WorkflowDefConstraintTest {
     }
 
     @Test
-    /*Testcase to check inputParam is not valid
+    /*
+     * Testcase to check inputParam is not valid
      */
     public void testWorkflowTaskInvalidInputParam() {
         WorkflowDef workflowDef = new WorkflowDef();

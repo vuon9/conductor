@@ -173,7 +173,8 @@ public class TestJoin {
                         "task2",
                         TaskModel.Status.IN_PROGRESS,
                         false,
-                        false); // Initially not in a terminal state.
+                        false); // Initially not in a terminal
+        // state.
 
         var wfJoinPair = createJoinWorkflow(List.of(task1, task2));
 

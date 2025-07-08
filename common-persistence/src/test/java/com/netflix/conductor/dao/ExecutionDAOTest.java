@@ -218,7 +218,8 @@ public abstract class ExecutionDAOTest {
                 getExecutionDAO().getPendingTasksForTaskType(tasks.get(0).getTaskDefName());
         assertNotNull(pending);
         assertEquals(2, pending.size());
-        // Pending list can come in any order.  finding the one we are looking for and then
+        // Pending list can come in any order. finding the one we are looking for and
+        // then
         // comparing
         TaskModel matching =
                 pending.stream()

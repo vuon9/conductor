@@ -48,7 +48,8 @@ public class Join extends WorkflowSystemTask {
         StringBuilder optionalTaskFailures = new StringBuilder();
         List<String> joinOn = (List<String>) task.getInputData().get("joinOn");
         if (task.isLoopOverTask()) {
-            // If join is part of loop over task, wait for specific iteration to get complete
+            // If join is part of loop over task, wait for specific iteration to get
+            // complete
             joinOn =
                     joinOn.stream()
                             .map(name -> TaskUtils.appendIteration(name, task.getIteration()))
@@ -74,7 +75,8 @@ public class Join extends WorkflowSystemTask {
                 task.addOutput(joinOnRef, forkedTask.getOutputData());
             }
 
-            // Determine if the join task fails immediately due to a non-optional, non-permissive
+            // Determine if the join task fails immediately due to a non-optional,
+            // non-permissive
             // task failure,
             // or waits for all tasks to be terminal if the failed task is permissive.
             var isJoinFailure =
@@ -107,7 +109,8 @@ public class Join extends WorkflowSystemTask {
             }
         }
 
-        // Finalize the join task's status based on the outcomes of all referenced tasks.
+        // Finalize the join task's status based on the outcomes of all referenced
+        // tasks.
         if (allTasksTerminal) {
             if (!optionalTaskFailures.isEmpty()) {
                 task.setStatus(TaskModel.Status.COMPLETED_WITH_ERRORS);
@@ -126,8 +129,10 @@ public class Join extends WorkflowSystemTask {
     @Override
     public Optional<Long> getEvaluationOffset(TaskModel taskModel, long maxOffset) {
         int pollCount = taskModel.getPollCount();
-        // Assuming pollInterval = 50ms and evaluationOffsetThreshold = 200 this will cause
-        // a JOIN task to be evaluated continuously during the first 10 seconds and the FORK/JOIN
+        // Assuming pollInterval = 50ms and evaluationOffsetThreshold = 200 this will
+        // cause
+        // a JOIN task to be evaluated continuously during the first 10 seconds and the
+        // FORK/JOIN
         // will end with minimal delay.
         if (pollCount <= properties.getSystemTaskPostponeThreshold()) {
             return Optional.of(0L);

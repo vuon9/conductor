@@ -146,9 +146,11 @@ public class PostgresPollDataDAO extends PostgresBaseDAO implements PollDataDAO 
     private void insertOrUpdatePollData(Connection connection, PollData pollData, String domain) {
         try {
             /*
-             * Most times the row will be updated so let's try the update first. This used to be an 'INSERT/ON CONFLICT do update' sql statement. The problem with that
-             * is that if we try the INSERT first, the sequence will be increased even if the ON CONFLICT happens. Since polling happens *a lot*, the sequence can increase
-             * dramatically even though it won't be used.
+             * Most times the row will be updated so let's try the update first. This used
+             * to be an 'INSERT/ON CONFLICT do update' sql statement. The problem with that
+             * is that if we try the INSERT first, the sequence will be increased even if
+             * the ON CONFLICT happens. Since polling happens *a lot*, the sequence can
+             * increase dramatically even though it won't be used.
              */
             String UPDATE_POLL_DATA =
                     "UPDATE poll_data SET json_data=?, modified_on=CURRENT_TIMESTAMP WHERE queue_name=? AND domain=?";

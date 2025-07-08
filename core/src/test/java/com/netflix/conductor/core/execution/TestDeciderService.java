@@ -200,7 +200,9 @@ public class TestDeciderService {
         assertNull(taskInput.get("nullValue"));
         assertEquals(
                 workflow.getTasks().get(0).getStatus().name(),
-                taskInput.get("task2Status")); // task2 and task3 are the tasks respectively
+                taskInput.get("task2Status")); // task2 and task3
+        // are the tasks
+        // respectively
     }
 
     @Test
@@ -747,7 +749,8 @@ public class TestDeciderService {
                 task2.get().getTaskId(),
                 ((Map<String, Object>) task2.get().getInputData().get("env")).get("env_task_id"));
 
-        // Set the retried task to FAILED, retry it again and assert that the workflow failed
+        // Set the retried task to FAILED, retry it again and assert that the workflow
+        // failed
         task2.get().setStatus(TaskModel.Status.FAILED);
         exception.expect(TerminateWorkflowException.class);
         final Optional<TaskModel> task3 =
@@ -1257,7 +1260,8 @@ public class TestDeciderService {
 
         workflow.getTasks().addAll(List.of(task1, task2));
 
-        // Workflow should be COMPLETED. All optional tasks have reached a terminal state.
+        // Workflow should be COMPLETED. All optional tasks have reached a terminal
+        // state.
         assertTrue(deciderService.checkForWorkflowCompletion(workflow));
     }
 

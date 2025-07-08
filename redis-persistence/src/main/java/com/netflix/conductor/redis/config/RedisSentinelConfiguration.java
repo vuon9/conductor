@@ -61,7 +61,8 @@ public class RedisSentinelConfiguration extends JedisCommandsConfigurer {
         for (Host host : hostSupplier.getHosts()) {
             sentinels.add(host.getHostName() + ":" + host.getPort());
         }
-        // We use the password of the first sentinel host as password and sentinelPassword
+        // We use the password of the first sentinel host as password and
+        // sentinelPassword
         String password = getPassword(hostSupplier.getHosts());
         if (properties.getUsername() != null && password != null) {
             return new JedisSentinel(

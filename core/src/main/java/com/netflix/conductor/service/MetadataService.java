@@ -111,7 +111,8 @@ public interface MetadataService {
      */
     default void validateWorkflowDef(
             @NotNull(message = "WorkflowDef cannot be null") @Valid WorkflowDef workflowDef) {
-        // do nothing, WorkflowDef is annotated with @Valid and calling this method will validate it
+        // do nothing, WorkflowDef is annotated with @Valid and calling this method will
+        // validate it
     }
 
     /**

@@ -309,7 +309,8 @@ public class PostgresMetadataDAOTest {
         def.setVersion(3);
         metadataDAO.createWorkflowDef(def);
 
-        // Placed the values in a map because they might not be stored in order of defName.
+        // Placed the values in a map because they might not be stored in order of
+        // defName.
         // To test, needed to confirm that the versions are correct for the definitions.
         Map<String, WorkflowDef> allMap =
                 metadataDAO.getAllWorkflowDefsLatestVersions().stream()

@@ -29,8 +29,8 @@ public class RestConfiguration implements WebMvcConfigurer {
      *
      * <p>Any "mapping" that is annotated with <code>produces=TEXT_PLAIN_VALUE</code> will be sent
      * as <code>text/plain</code> all others as <code>application/json</code>.<br>
-     * More details on Spring MVC content negotiation can be found at <a
-     * href="https://spring.io/blog/2013/05/11/content-negotiation-using-spring-mvc">https://spring.io/blog/2013/05/11/content-negotiation-using-spring-mvc</a>
+     * More details on Spring MVC content negotiation can be found at <a href=
+     * "https://spring.io/blog/2013/05/11/content-negotiation-using-spring-mvc">https://spring.io/blog/2013/05/11/content-negotiation-using-spring-mvc</a>
      * <br>
      */
     @Override

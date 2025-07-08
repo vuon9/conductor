@@ -41,9 +41,9 @@ import software.amazon.awssdk.services.s3.presigner.model.PutObjectPresignReques
  *
  * <p><em>NOTE: The S3 client assumes that access to S3 is configured on the instance.</em>
  *
- * @see <a
- *     href="https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials.html">AWS
- *     SDK for Java v2 Credentials</a>
+ * @see <a href=
+ *     "https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials.html">AWS SDK
+ *     for Java v2 Credentials</a>
  */
 public class S3PayloadStorage implements ExternalPayloadStorage {
 

@@ -537,12 +537,10 @@ public class ExecutionService {
     }
 
     public SearchResult<TaskSummary> getSearchTasks(
-            String query,
-            String freeText,
-            int start,
-            /*@Max(value = MAX_SEARCH_SIZE, message = "Cannot return more than {value} workflows." +
-            " Please use pagination.")*/ int size,
-            String sortString) {
+            String query, String freeText, int start, /*
+			 * @Max(value = MAX_SEARCH_SIZE, message =
+			 * "Cannot return more than {value} workflows." + " Please use pagination.")
+			 */ int size, String sortString) {
         return searchTaskSummary(
                 query, freeText, start, size, Utils.convertStringToList(sortString));
     }

@@ -31,7 +31,7 @@ public class WorkflowTestRequest extends StartWorkflowRequest {
     public static class TaskMock {
         private TaskResult.Status status = TaskResult.Status.COMPLETED;
         private Map<String, Object> output;
-        private long executionTime; // Time in millis for the execution of the task.  Useful for
+        private long executionTime; // Time in millis for the execution of the task. Useful for
         // simulating timeout conditions
         private long queueWaitTime; // Time in millis for the wait time in the queue.
 

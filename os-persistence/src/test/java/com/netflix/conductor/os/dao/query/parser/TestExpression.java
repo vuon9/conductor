@@ -36,7 +36,7 @@ public class TestExpression extends AbstractParserTest {
     public void test() throws Exception {
         String test =
                 "type='IMAGE' AND subType	='sdp' AND (metadata.width > 50 OR metadata.height > 50)";
-        // test = "type='IMAGE' AND subType	='sdp'";
+        // test = "type='IMAGE' AND subType ='sdp'";
         // test = "(metadata.type = 'IMAGE')";
         InputStream is = new BufferedInputStream(new ByteArrayInputStream(test.getBytes()));
         Expression expr = new Expression(is);

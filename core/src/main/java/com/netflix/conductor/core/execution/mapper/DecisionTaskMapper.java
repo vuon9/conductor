@@ -82,7 +82,8 @@ public class DecisionTaskMapper implements TaskMapper {
         // get the expression to be evaluated
         String caseValue = getEvaluatedCaseValue(workflowTask, taskInput);
 
-        // QQ why is the case value and the caseValue passed and caseOutput passes as the same ??
+        // QQ why is the case value and the caseValue passed and caseOutput passes as
+        // the same ??
         TaskModel decisionTask = taskMapperContext.createTaskModel();
         decisionTask.setTaskType(TaskType.TASK_TYPE_DECISION);
         decisionTask.setTaskDefName(TaskType.TASK_TYPE_DECISION);
@@ -94,17 +95,20 @@ public class DecisionTaskMapper implements TaskMapper {
 
         // get the list of tasks based on the decision
         List<WorkflowTask> selectedTasks = workflowTask.getDecisionCases().get(caseValue);
-        // if the tasks returned are empty based on evaluated case value, then get the default case
+        // if the tasks returned are empty based on evaluated case value, then get the
+        // default case
         // if there is one
         if (selectedTasks == null || selectedTasks.isEmpty()) {
             selectedTasks = workflowTask.getDefaultCase();
         }
-        // once there are selected tasks that need to proceeded as part of the decision, get the
+        // once there are selected tasks that need to proceeded as part of the decision,
+        // get the
         // next task to be scheduled by using the decider service
         if (selectedTasks != null && !selectedTasks.isEmpty()) {
             WorkflowTask selectedTask =
                     selectedTasks.get(0); // Schedule the first task to be executed...
-            // TODO break out this recursive call using function composition of what needs to be
+            // TODO break out this recursive call using function composition of what needs
+            // to be
             // done and then walk back the condition tree
             List<TaskModel> caseTasks =
                     taskMapperContext
@@ -145,7 +149,8 @@ public class DecisionTaskMapper implements TaskMapper {
                 throw new TerminateWorkflowException(errorMsg);
             }
 
-        } else { // In case of no case expression, get the caseValueParam and treat it as a string
+        } else { // In case of no case expression, get the caseValueParam and treat it as a
+            // string
             // representation of caseValue
             LOGGER.debug(
                     "No Expression available on the decision task, case value being assigned as param name");

@@ -60,8 +60,9 @@ public class DoWhile extends WorkflowSystemTask {
         Map<String, Object> output = new HashMap<>();
 
         /*
-         * Get the latest set of tasks (the ones that have the highest retry count). We don't want to evaluate any tasks
-         * that have already failed if there is a more current one (a later retry count).
+         * Get the latest set of tasks (the ones that have the highest retry count). We
+         * don't want to evaluate any tasks that have already failed if there is a more
+         * current one (a later retry count).
          */
         Map<String, TaskModel> relevantTasks = new LinkedHashMap<>();
         TaskModel relevantTask;
@@ -89,7 +90,8 @@ public class DoWhile extends WorkflowSystemTask {
                     doWhileTaskModel.getIteration());
         }
 
-        // if the loopOverTasks collection is empty, no tasks inside the loop have been scheduled.
+        // if the loopOverTasks collection is empty, no tasks inside the loop have been
+        // scheduled.
         // so schedule it and exit the method.
         if (loopOverTasks.isEmpty()) {
             doWhileTaskModel.setIteration(1);
@@ -133,11 +135,13 @@ public class DoWhile extends WorkflowSystemTask {
         }
 
         if (!isIterationComplete(doWhileTaskModel, relevantTasks)) {
-            // current iteration is not complete (all tasks inside the loop are not terminal)
+            // current iteration is not complete (all tasks inside the loop are not
+            // terminal)
             return false;
         }
 
-        // if we are here, the iteration is complete, and we need to check if there is a next
+        // if we are here, the iteration is complete, and we need to check if there is a
+        // next
         // iteration by evaluating the loopCondition
         boolean shouldContinue;
         try {
@@ -204,9 +208,11 @@ public class DoWhile extends WorkflowSystemTask {
             return false;
         }
 
-        // Check all the tasks in referenceNameToModel are completed or not. These are set of tasks
+        // Check all the tasks in referenceNameToModel are completed or not. These are
+        // set of tasks
         // which are not directly inside loopOver tasks, but they are under hierarchy
-        // loopOver -> [decisionTask -> COMPLETED [ task1 -> COMPLETED, task2 -> IN_PROGRESS]]
+        // loopOver -> [decisionTask -> COMPLETED [ task1 -> COMPLETED, task2 ->
+        // IN_PROGRESS]]
         return referenceNameToModel.values().stream()
                 .noneMatch(taskModel -> !taskModel.getStatus().isTerminal());
     }

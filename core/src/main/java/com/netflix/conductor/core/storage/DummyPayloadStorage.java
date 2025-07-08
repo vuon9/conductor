@@ -74,7 +74,8 @@ public class DummyPayloadStorage implements ExternalPayloadStorage {
             IOUtils.copy(payload, new FileOutputStream(file));
             LOGGER.debug("Written to {}", filePath);
         } catch (IOException e) {
-            // just handle this exception here and return empty map so that test will fail in case
+            // just handle this exception here and return empty map so that test will fail
+            // in case
             // this exception is thrown
             LOGGER.error("Error writing to {}", filePath);
         } finally {

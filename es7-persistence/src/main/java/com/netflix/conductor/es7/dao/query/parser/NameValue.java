@@ -33,7 +33,7 @@ import com.netflix.conductor.es7.dao.query.parser.internal.Range;
  * key OPR value
  * OPR is the comparison operator which could be on the following:
  * 	&gt;, &lt;, = , !=, IN, BETWEEN
- * </pre>
+ *         </pre>
  */
 public class NameValue extends AbstractNode implements FilterProvider {
 

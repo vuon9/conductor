@@ -101,7 +101,8 @@ public class SwitchTaskMapper implements TaskMapper {
             return tasksToBeScheduled;
         }
 
-        // QQ why is the case value and the caseValue passed and caseOutput passes as the same ??
+        // QQ why is the case value and the caseValue passed and caseOutput passes as
+        // the same ??
         TaskModel switchTask = taskMapperContext.createTaskModel();
         switchTask.setTaskType(TaskType.TASK_TYPE_SWITCH);
         switchTask.setTaskDefName(TaskType.TASK_TYPE_SWITCH);
@@ -115,17 +116,20 @@ public class SwitchTaskMapper implements TaskMapper {
 
         // get the list of tasks based on the evaluated expression
         List<WorkflowTask> selectedTasks = workflowTask.getDecisionCases().get(evalResult);
-        // if the tasks returned are empty based on evaluated result, then get the default case if
+        // if the tasks returned are empty based on evaluated result, then get the
+        // default case if
         // there is one
         if (selectedTasks == null || selectedTasks.isEmpty()) {
             selectedTasks = workflowTask.getDefaultCase();
         }
-        // once there are selected tasks that need to proceeded as part of the switch, get the next
+        // once there are selected tasks that need to proceeded as part of the switch,
+        // get the next
         // task to be scheduled by using the decider service
         if (selectedTasks != null && !selectedTasks.isEmpty()) {
             WorkflowTask selectedTask =
                     selectedTasks.get(0); // Schedule the first task to be executed...
-            // TODO break out this recursive call using function composition of what needs to be
+            // TODO break out this recursive call using function composition of what needs
+            // to be
             // done and then walk back the condition tree
             List<TaskModel> caseTasks =
                     taskMapperContext

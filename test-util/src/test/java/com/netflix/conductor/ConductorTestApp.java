@@ -20,8 +20,10 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /** Copy of com.netflix.conductor.Conductor for use by @SpringBootTest in AbstractSpecification. */
 
-// Prevents from the datasource beans to be loaded, AS they are needed only for specific databases.
-// In case that SQL database is selected this class will be imported back in the appropriate
+// Prevents from the datasource beans to be loaded, AS they are needed only for
+// specific databases.
+// In case that SQL database is selected this class will be imported back in the
+// appropriate
 // database persistence module.
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class ConductorTestApp {

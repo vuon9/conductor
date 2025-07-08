@@ -135,8 +135,10 @@ public class DeciderService {
         boolean hasSuccessfulTerminateTask = false;
         for (TaskModel task : workflow.getTasks()) {
 
-            // Filter the list of tasks and include only tasks that are not retried, not executed
-            // marked to be skipped and not part of System tasks that is DECISION, FORK, JOIN
+            // Filter the list of tasks and include only tasks that are not retried, not
+            // executed
+            // marked to be skipped and not part of System tasks that is DECISION, FORK,
+            // JOIN
             // This list will be empty for a new workflow being started
             if (!task.isRetried() && !task.getStatus().equals(SKIPPED) && !task.isExecuted()) {
                 pendingTasks.add(task);
@@ -186,7 +188,8 @@ public class DeciderService {
             if (taskDefinition.isPresent()) {
                 checkTaskTimeout(taskDefinition.get(), pendingTask);
                 checkTaskPollTimeout(taskDefinition.get(), pendingTask);
-                // If the task has not been updated for "responseTimeoutSeconds" then mark task as
+                // If the task has not been updated for "responseTimeoutSeconds" then mark task
+                // as
                 // TIMED_OUT
                 if (isResponseTimedOut(taskDefinition.get(), pendingTask)) {
                     timeoutTask(taskDefinition.get(), pendingTask);
@@ -341,9 +344,8 @@ public class DeciderService {
             }
 
             WorkflowTask taskToSchedule =
-                    workflowDef
-                            .getTasks()
-                            .get(0); // Nothing is running yet - so schedule the first task
+                    workflowDef.getTasks().get(0); // Nothing is running yet - so schedule the
+            // first task
             // Loop until a non-skipped task is found
             while (isTaskSkipped(taskToSchedule, workflow)) {
                 taskToSchedule = workflowDef.getNextTask(taskToSchedule.getTaskReferenceName());
@@ -448,7 +450,8 @@ public class DeciderService {
                 return false;
             }
 
-            // If there is a TERMINATE task that has been executed successfuly then the workflow
+            // If there is a TERMINATE task that has been executed successfuly then the
+            // workflow
             // should be marked as completed.
             if (TERMINATE.name().equals(task.getTaskType())
                     && task.getStatus().isTerminal()
@@ -869,7 +872,7 @@ public class DeciderService {
 
         String type = taskToSchedule.getType();
 
-        // get tasks already scheduled (in progress/terminal) for  this workflow instance
+        // get tasks already scheduled (in progress/terminal) for this workflow instance
         List<String> tasksInWorkflow =
                 workflow.getTasks().stream()
                         .filter(
@@ -892,10 +895,13 @@ public class DeciderService {
                         .withDeciderService(this)
                         .build();
 
-        // For static forks, each branch of the fork creates a join task upon completion for
-        // dynamic forks, a join task is created with the fork and also with each branch of the
+        // For static forks, each branch of the fork creates a join task upon completion
+        // for
+        // dynamic forks, a join task is created with the fork and also with each branch
+        // of the
         // fork.
-        // A new task must only be scheduled if a task, with the same reference name is not already
+        // A new task must only be scheduled if a task, with the same reference name is
+        // not already
         // in this workflow instance
         return taskMappers
                 .getOrDefault(type, taskMappers.get(USER_DEFINED.name()))

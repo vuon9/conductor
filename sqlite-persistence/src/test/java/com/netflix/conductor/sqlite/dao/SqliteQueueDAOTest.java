@@ -358,7 +358,8 @@ public class SqliteQueueDAOTest {
         // A secondary queue to make sure we don't accidentally process other queues
         final String otherQueueName = "process_unacks_test_other_queue";
 
-        // Create testing queue with some messages (but not all) that will be popped/acked.
+        // Create testing queue with some messages (but not all) that will be
+        // popped/acked.
         for (int i = 0; i < count; i++) {
             int offset = 0;
             if (i >= unackedCount) {

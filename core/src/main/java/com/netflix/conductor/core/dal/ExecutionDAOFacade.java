@@ -382,7 +382,8 @@ public class ExecutionDAOFacade {
         if (archiveWorkflow) {
             if (workflow.getStatus().isTerminal()) {
                 // Only allow archival if workflow is in terminal state
-                // DO NOT archive async, since if archival errors out, workflow data will be lost
+                // DO NOT archive async, since if archival errors out, workflow data will be
+                // lost
                 indexDAO.updateWorkflow(
                         workflow.getWorkflowId(),
                         new String[] {RAW_JSON_FIELD, ARCHIVED_FIELD},
@@ -508,10 +509,11 @@ public class ExecutionDAOFacade {
         executionDAO.updateTask(taskModel);
         try {
             /*
-             * Indexing a task for every update adds a lot of volume. That is ok but if async indexing
-             * is enabled and tasks are stored in memory until a block has completed, we would lose a lot
-             * of tasks on a system failure. So only index for each update if async indexing is not enabled.
-             * If it *is* enabled, tasks will be indexed only when a workflow is in terminal state.
+             * Indexing a task for every update adds a lot of volume. That is ok but if
+             * async indexing is enabled and tasks are stored in memory until a block has
+             * completed, we would lose a lot of tasks on a system failure. So only index
+             * for each update if async indexing is not enabled. If it *is* enabled, tasks
+             * will be indexed only when a workflow is in terminal state.
              */
             if (!properties.isAsyncIndexingEnabled() && properties.isTaskIndexingEnabled()) {
                 indexDAO.indexTask(new TaskSummary(taskModel.toTask()));

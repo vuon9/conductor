@@ -49,7 +49,8 @@ public class RedisExecutionDAO extends BaseDynoDAO
     private static final String TASK_LIMIT_BUCKET = "TASK_LIMIT_BUCKET";
     private static final String IN_PROGRESS_TASKS = "IN_PROGRESS_TASKS";
     private static final String TASKS_IN_PROGRESS_STATUS =
-            "TASKS_IN_PROGRESS_STATUS"; // Tasks which are in IN_PROGRESS status.
+            "TASKS_IN_PROGRESS_STATUS"; // Tasks which are in IN_PROGRESS
+    // status.
     private static final String WORKFLOW_TO_TASKS = "WORKFLOW_TO_TASKS";
     private static final String SCHEDULED_TASKS = "SCHEDULED_TASKS";
     private static final String TASK = "TASK";
@@ -299,7 +300,8 @@ public class RedisExecutionDAO extends BaseDynoDAO
                     limit,
                     current);
             String inProgressKey = nsKey(TASKS_IN_PROGRESS_STATUS, task.getTaskDefName());
-            // Cleanup any items that are still present in the rate limit bucket but not in progress
+            // Cleanup any items that are still present in the rate limit bucket but not in
+            // progress
             // anymore!
             ids.stream()
                     .filter(id -> !jedisProxy.sismember(inProgressKey, id))

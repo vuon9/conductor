@@ -699,8 +699,10 @@ public class PostgresExecutionDAO extends PostgresBaseDAO
 
     private void insertOrUpdateTaskData(Connection connection, TaskModel task) {
         /*
-         * Most times the row will be updated so let's try the update first. This used to be an 'INSERT/ON CONFLICT do update' sql statement. The problem with that
-         * is that if we try the INSERT first, the sequence will be increased even if the ON CONFLICT happens.
+         * Most times the row will be updated so let's try the update first. This used
+         * to be an 'INSERT/ON CONFLICT do update' sql statement. The problem with that
+         * is that if we try the INSERT first, the sequence will be increased even if
+         * the ON CONFLICT happens.
          */
         String UPDATE_TASK =
                 "UPDATE task SET json_data=?, modified_on=CURRENT_TIMESTAMP WHERE task_id=?";

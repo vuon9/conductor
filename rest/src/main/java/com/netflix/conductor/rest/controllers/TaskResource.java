@@ -64,7 +64,8 @@ public class TaskResource {
             @PathVariable("tasktype") String taskType,
             @RequestParam(value = "workerid", required = false) String workerId,
             @RequestParam(value = "domain", required = false) String domain) {
-        // for backwards compatibility with 2.x client which expects a 204 when no Task is found
+        // for backwards compatibility with 2.x client which expects a 204 when no Task
+        // is found
         return Optional.ofNullable(taskService.poll(taskType, workerId, domain))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.noContent().build());
@@ -78,7 +79,8 @@ public class TaskResource {
             @RequestParam(value = "domain", required = false) String domain,
             @RequestParam(value = "count", defaultValue = "1") int count,
             @RequestParam(value = "timeout", defaultValue = "100") int timeout) {
-        // for backwards compatibility with 2.x client which expects a 204 when no Task is found
+        // for backwards compatibility with 2.x client which expects a 204 when no Task
+        // is found
         return Optional.ofNullable(
                         taskService.batchPoll(taskType, workerId, domain, count, timeout))
                 .map(ResponseEntity::ok)
@@ -158,7 +160,8 @@ public class TaskResource {
     @GetMapping("/{taskId}")
     @Operation(summary = "Get task by Id")
     public ResponseEntity<Task> getTask(@PathVariable("taskId") String taskId) {
-        // for backwards compatibility with 2.x client which expects a 204 when no Task is found
+        // for backwards compatibility with 2.x client which expects a 204 when no Task
+        // is found
         return Optional.ofNullable(taskService.getTask(taskId))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.noContent().build());

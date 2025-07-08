@@ -27,7 +27,7 @@ import com.netflix.conductor.os.dao.query.parser.internal.ComparisonOp.Operators
  * key OPR value
  * OPR is the comparison operator which could be on the following:
  * 	&gt;, &lt;, = , !=, IN, BETWEEN
- * </pre>
+ *         </pre>
  */
 public class NameValue extends AbstractNode implements FilterProvider {
 

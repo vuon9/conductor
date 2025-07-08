@@ -49,7 +49,8 @@ public abstract class NATSAbstractQueue implements ObservableQueue {
     protected final String subject;
     protected String queue;
 
-    // Indicates that observe was called (Event Handler) and we must to re-initiate subscription
+    // Indicates that observe was called (Event Handler) and we must to re-initiate
+    // subscription
     // upon reconnection
     private boolean observable;
     private boolean isOpened;

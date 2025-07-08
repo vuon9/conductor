@@ -27,11 +27,11 @@ public class DateTimeUtils {
     private static final Pattern DURATION_PATTERN =
             Pattern.compile(
                     """
-                    \\s*(?:(\\d+)\\s*(?:days?|d))?\
-                    \\s*(?:(\\d+)\\s*(?:hours?|hrs?|h))?\
-                    \\s*(?:(\\d+)\\s*(?:minutes?|mins?|m))?\
-                    \\s*(?:(\\d+)\\s*(?:seconds?|secs?|s))?\
-                    \\s*""",
+			\\s*(?:(\\d+)\\s*(?:days?|d))?\
+			\\s*(?:(\\d+)\\s*(?:hours?|hrs?|h))?\
+			\\s*(?:(\\d+)\\s*(?:minutes?|mins?|m))?\
+			\\s*(?:(\\d+)\\s*(?:seconds?|secs?|s))?\
+			\\s*""",
                     Pattern.CASE_INSENSITIVE);
 
     public static Duration parseDuration(String text) {

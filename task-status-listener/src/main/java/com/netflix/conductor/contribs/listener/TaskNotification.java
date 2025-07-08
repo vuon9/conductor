@@ -87,8 +87,8 @@ public class TaskNotification extends TaskSummary {
     }
 
     /*
-     * https://github.com/Netflix/conductor/pull/2128
-     * To enable Workflow/Task Summary Input/Output JSON Serialization, use the following:
+     * https://github.com/Netflix/conductor/pull/2128 To enable Workflow/Task
+     * Summary Input/Output JSON Serialization, use the following:
      * conductor.app.summary-input-output-json-serialization.enabled=true
      */
     String toJsonStringWithInputOutput() {

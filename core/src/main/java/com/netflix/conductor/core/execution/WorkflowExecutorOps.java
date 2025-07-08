@@ -212,10 +212,10 @@ public class WorkflowExecutorOps implements WorkflowExecutor {
         }
 
         if (!workflowDef.isRestartable()
-                && workflow.getStatus()
-                        .equals(
-                                WorkflowModel.Status
-                                        .COMPLETED)) { // Can only restart non-completed workflows
+                && workflow.getStatus().equals(WorkflowModel.Status.COMPLETED)) { // Can only
+            // restart
+            // non-completed
+            // workflows
             // when the configuration is set to false
             throw new NotFoundException("Workflow: %s is non-restartable", workflow);
         }
